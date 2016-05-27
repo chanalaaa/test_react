@@ -1,28 +1,28 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var App = React.createClass({
-    getInitialState: function() {
-        return {
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
             text: 'Chuck Norris'
         }
-    },
+    }
 
-    updateText: function(event) {
+    updateText(event) {
         this.setState({
             text: event.target.value
         });
-    },
+    }
 
-    render: function() {
+    render() {
         return (
-            <div> 
+            <div>
                 <h1>{this.state.text}</h1>
-                <input type="text" onChange={this.updateText} />
+                <input type="text" onChange={this.updateText.bind(this)} />
             </div>
         )
     }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
