@@ -11,7 +11,7 @@
         <?php include("views/header.php"); ?>
         <!-- Content ********************* -->
         
-
+<p>testt</p>
         <!-- End ********************* -->
         <?php include("views/footer.php"); ?>
         <script type="text/javascript" src="js/main.js"></script>
