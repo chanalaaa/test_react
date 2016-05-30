@@ -13,44 +13,40 @@ const sassLoaders = [
 
 
 const config = {
-  entry: {
-    main: ['build/main']
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: ['babel-loader'],
-        query: {
+    devtool: 'eval',
+    entry: {
+        main: ['build/main']
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: ['babel-loader'],
+            query: {
                 presets: ['es2015', 'react']
             }
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
-      }
-    ]
-  },
-  output: {
-    filename: '[name].js',
-    path: path.join(__dirname, './js'),
-    publicPath: '/js'
-  },
-  plugins: [
-    new ExtractTextPlugin('../css/[name].css')
-  ],
-  postcss: [
-    autoprefixer({
-      browsers: ['last 2 versions']
-    })
-  ],
-  resolve: {
-    extensions: ['', '.js' ,'.scss'],
-    root: [path.join(__dirname, './')]
-  }
+        }, {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        }]
+    },
+    output: {
+        filename: '[name].js',
+        path: path.join(__dirname, './js'),
+        publicPath: '/js'
+    },
+    plugins: [
+        new ExtractTextPlugin('../css/[name].css')
+    ],
+    postcss: [
+        autoprefixer({
+            browsers: ['last 2 versions']
+        })
+    ],
+    resolve: {
+        extensions: ['', '.js', '.scss'],
+        root: [path.join(__dirname, './')]
+    }
 }
 
 module.exports = config
-
-
