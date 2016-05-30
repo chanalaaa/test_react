@@ -29,7 +29,7 @@ p{
 } 
 @mixin bg_img($uri) {
     background-image: url($uri);
-    @include background-size(cover);
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     width: 100%;
