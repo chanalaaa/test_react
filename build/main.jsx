@@ -8,7 +8,7 @@ class App extends React.Component {
         this.state = {
             text: 'Chan@laaa'
         }
-    } 
+    }
 
     updateText(event) {
         this.setState({
