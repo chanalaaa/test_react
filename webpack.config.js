@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+var webpack = require('webpack');
 
 const sassLoaders = [
     'css-loader',
@@ -13,7 +14,7 @@ const sassLoaders = [
 
 
 const config = {
-    devtool: 'eval',
+    devtool: 'source-map',
     entry: {
         main: ['build/main']
     },
@@ -21,13 +22,16 @@ const config = {
         loaders: [{
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: ['babel-loader'],
+            loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
+            // loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
+            /* 
             query: {
-                presets: ['es2015', 'react']
-            }
+                 presets: ['es2015', 'react']
+             }
+             */
         }, {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+            loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
         }]
     },
     output: {
@@ -36,11 +40,13 @@ const config = {
         publicPath: '/js'
     },
     plugins: [
-        new ExtractTextPlugin('../css/[name].css')
+        new ExtractTextPlugin('../css/style.css'),
+        //new webpack.HotModuleReplacementPlugin(),
+
     ],
     postcss: [
         autoprefixer({
-            browsers: ['last 2 versions']
+            browsers: ["last 3 version", "> 1%", "Firefox 15", "ie 8", "ie 7"]
         })
     ],
     resolve: {

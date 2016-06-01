@@ -6,7 +6,7 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            text: 'Chuck Norris'
+            text: 'Chan@laaa'
         }
     }
 
