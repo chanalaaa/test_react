@@ -4,9 +4,10 @@ const path = require('path');
 var webpack = require('webpack');
 
 const sassLoaders = [
-    'css-loader',
+
+    'css-loader?sourceMap',
     'postcss-loader',
-    'sass-loader?includePaths[]=' + path.resolve(__dirname, './')
+    'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=' + path.resolve(__dirname, './')
 ]
 
 /////////////////////////
