@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --progress --colors",
     "dev": "webpack-dev-server -w --hot --inline --debug-info",
     "deploy": "webpack -p --config webpack.production.config.js",
-    "s":"webpack -w"
+    "s":"webpack -w --progress --colors"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",

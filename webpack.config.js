@@ -21,7 +21,7 @@ const config = {
     },
     module: {
         loaders: [{
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
             // loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
@@ -51,7 +51,7 @@ const config = {
         })
     ],
     resolve: {
-        extensions: ['', '.js', '.scss'],
+        extensions: ['', '.jsx', '.js', '.scss'],
         root: [path.join(__dirname, './')]
     }
 }
