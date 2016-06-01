@@ -17,7 +17,7 @@ const sassLoaders = [
 const config = {
     devtool: 'source-map',
     entry: {
-        main: ['build/main']
+        main: ['../api/build/main']
     },
     module: {
         loaders: [{
@@ -57,3 +57,5 @@ const config = {
 }
 
 module.exports = config
+
+
