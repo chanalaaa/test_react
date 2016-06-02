@@ -1,10 +1,12 @@
 // App.js
 import React, { Component } from 'react'
+//import Header from './Header'
 
 export default class App extends Component {
   render() {
     return (
       <div>
+       
         <div className='container'>
           <div>
             {this.props.children}
@@ -13,4 +15,4 @@ export default class App extends Component {
       </div>
     )
   }
-}
+} 

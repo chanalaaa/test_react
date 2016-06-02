@@ -248,4 +248,14 @@ h1 {
   *zoom: 1;
 }
 
+.title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 /*# sourceMappingURL=style.css.map*/

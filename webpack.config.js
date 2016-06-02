@@ -23,7 +23,7 @@ const config = {
         loaders: [{
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
+            loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0'],
             // loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
             /* 
             query: {
@@ -54,6 +54,14 @@ const config = {
         extensions: ['', '.jsx', '.js', '.scss'],
         root: [path.join(__dirname, './')]
     },
+    devServer: {
+    historyApiFallback: true,
+    proxy: {
+      '/api/*': {
+        target: 'http://127.0.0.1:5000'
+      }
+    }
+  }
 }
 
 module.exports = config
