@@ -17,7 +17,9 @@ const sassLoaders = [
 const config = {
     devtool: 'source-map',
     entry: {
-        main: ['./ui/main.js']
+        main: ['./ui/main.js'],
+        style: ['./ui/scss/style.scss']
+
     },
     module: {
         loaders: [{
@@ -42,7 +44,8 @@ const config = {
     },
     plugins: [
         new ExtractTextPlugin('../css/style.css'),
-        //new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
 
     ],
     postcss: [
@@ -55,13 +58,13 @@ const config = {
         root: [path.join(__dirname, './')]
     },
     devServer: {
-    historyApiFallback: true,
-    proxy: {
-      '/api/*': {
-        target: 'http://127.0.0.1:5000'
-      }
+        historyApiFallback: true,
+        proxy: {
+            '/api/*': {
+                target: 'http://127.0.0.1:5000'
+            }
+        }
     }
-  }
 }
 
 module.exports = config

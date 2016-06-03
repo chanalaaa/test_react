@@ -284,6 +284,7 @@ h1 {
 }
 
 .title {
+  color: blue;
   position: fixed;
   top: 50%;
   left: 50%;
