@@ -248,6 +248,41 @@ h1 {
   *zoom: 1;
 }
 
+.header {
+  background: #2d3e50;
+  padding: 1rem;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+.brand {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu {
+  float: right;
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu__item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.menu__link {
+  padding: 1rem;
+  color: #18d8a9;
+  text-decoration: none;
+}
+
 .title {
   position: fixed;
   top: 50%;
@@ -256,6 +291,29 @@ h1 {
      -moz-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #cbcbcb;
+}
+
+.table td, .table th {
+  border-left: 1px solid #cbcbcb;
+  border-width: 0 0 0 1px;
+  font-size: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: 0.5rem 1rem;
+}
+
+.table thead {
+  background-color: #e0e0e0;
+  color: #000;
+  text-align: left;
+  vertical-align: bottom;
 }
 
 /*# sourceMappingURL=style.css.map*/
