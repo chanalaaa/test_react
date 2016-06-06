@@ -3,8 +3,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 var webpack = require('webpack');
 
-const sassLoaders = [
 
+const sassLoaders = [
     'css-loader?sourceMap',
     'postcss-loader',
     'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=' + path.resolve(__dirname, './')
@@ -17,8 +17,8 @@ const sassLoaders = [
 const config = {
     devtool: 'source-map',
     entry: {
-        main: ['./ui/main.js'],
-        style: ['./ui/scss/style.scss']
+        main: ['./ui/main.js']
+        //style: ['./ui/scss/style.scss']
 
     },
     module: {
@@ -33,8 +33,12 @@ const config = {
              }
              */
         }, {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader'
+        }, {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
+            //loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
+            loaders: ['style-loader', sassLoaders.join('!')]
         }]
     },
     output: {
@@ -43,10 +47,9 @@ const config = {
         publicPath: '/js'
     },
     plugins: [
-        new ExtractTextPlugin('../css/style.css'),
+        //new ExtractTextPlugin('../css/style.css', { allChunks: true }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-
+        new webpack.NoErrorsPlugin(),
     ],
     postcss: [
         autoprefixer({
@@ -56,6 +59,7 @@ const config = {
     resolve: {
         extensions: ['', '.jsx', '.js', '.scss'],
         root: [path.join(__dirname, './')]
+
     },
     devServer: {
         historyApiFallback: true,

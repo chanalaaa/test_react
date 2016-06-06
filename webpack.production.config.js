@@ -3,9 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 const sassLoaders = [
-    'css-loader',
+    'css-loader?sourceMap',
     'postcss-loader',
-    'sass-loader?includePaths[]=' + path.resolve(__dirname, './')
+    'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&includePaths[]=' + path.resolve(__dirname, './')
 ]
 
 /////////////////////////
@@ -14,7 +14,8 @@ const sassLoaders = [
 
 const config = {
   entry: {
-    main: ['build/main']
+     main: ['./ui/main.js'],
+    style: ['./ui/scss/style.scss']
   },
   module: {
     loaders: [
