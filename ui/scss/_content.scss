@@ -1,7 +1,7 @@
  // Content //////////////////////////////////
  
  .title {
- color:gray; 
+  color:#749503;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -16,6 +16,7 @@ $border-style: 1px solid #cbcbcb;
     border-spacing: 0;
     empty-cells: show;
     border: $border-style;
+    margin: 10% auto 0;
 
     td, th {
       border-left: $border-style;

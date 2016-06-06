@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 export default class Header extends Component {
   render() {
     return (
       <header className='header'>
         <nav>
-          <a href='/' className='brand'>
+         <Link
+            to={{ pathname: '/' }}
+            className='brand'>
             Babel Coder Wiki!
-          </a>
+          </Link>
           <ul className='menu'>
             <li className='menu__item'>
-              <a href='/pages' className='menu__link'>
+              <Link
+              to={{ pathname: '/pages' }} className='menu__link'>
                 All Pages
-              </a>
+              </Link>
             </li>
             <li className='menu__item'>
               <a
