@@ -1,12 +1,9 @@
 
 import React, { PropTypes } from 'react'
 
-const ShowPage = ({
-  title,
-  content
-}) => {
+const ShowPage = ({title,content}) => {
   return (
-    <article>
+    <article className='block'>
       <h1>{title}</h1>
       <p>
         {content}

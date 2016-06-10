@@ -1,2 +1,2 @@
 export Pages from './Pages/Index'
-export Pages from './Pages/Show'
+export ShowPage from './Pages/Show'
