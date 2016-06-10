@@ -16,7 +16,7 @@ $border-style: 1px solid #cbcbcb;
     border-spacing: 0;
     empty-cells: show;
     border: $border-style;
-    margin: 10% auto 0;
+    margin: 0 auto;
 
     td, th {
       border-left: $border-style;
@@ -33,6 +33,10 @@ $border-style: 1px solid #cbcbcb;
       text-align: left;
       vertical-align: bottom;
     }
+  }
+
+  .block{
+  	margin: 10% auto 0;
   }
 
  // End Content //////////////////////////////////

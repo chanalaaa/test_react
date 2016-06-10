@@ -10,7 +10,15 @@ export default class Pages extends Component  {
   }
 
   render() {
+     const { pages, onReloadPages } = this.props
     return (
+       <div className='block'>
+        <button 
+          className='button'
+          onClick={() => onReloadPages()}>
+          Reload Pages
+        </button>
+        <hr />
       <table className='table'>
       <thead>
           <tr>
@@ -28,6 +36,7 @@ export default class Pages extends Component  {
           }
         </tbody>
       </table>
+      </div>
     )
   }
 }

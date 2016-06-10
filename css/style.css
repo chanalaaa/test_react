@@ -307,7 +307,7 @@ h1 {
   font-size: inherit;
   margin: 0;
   overflow: visible;
-  padding: 0.5rem 1rem;
+
 }
 
 .table thead {
@@ -315,6 +315,10 @@ h1 {
   color: #000;
   text-align: left;
   vertical-align: bottom;
+}
+
+.block{
+   padding: 0.5rem 1rem; 
 }
 
 /*# sourceMappingURL=style.css.map*/
