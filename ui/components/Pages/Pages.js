@@ -23,11 +23,11 @@ class Pages extends Component {
             <th>Action</th>
           </tr>
         </thead>
-
         <tbody>
           {
             this.state.pages.map((page) => (
-              <Page key={page.id} page={page} /> 
+              <Page key={page.id} id={page.id} title={page.title}/> 
+              //<Page key={page.id} page={page} /> 
             ))
           }
         </tbody>
