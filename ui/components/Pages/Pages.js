@@ -1,16 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component,PropTypes } from 'react'
 import fetch from 'isomorphic-fetch'
 import Page from './Page'
 
-class Pages extends Component {
-  state = {
-    pages: []
-  }
+export default class Pages extends Component  {
 
-  componentDidMount() {
-    fetch('http://127.0.0.1:5000/api/v1/pages')
-      .then((response) => response.json())
-      .then((pages) => this.setState({ pages }))
+  static propTypes = {
+    pages: PropTypes.array.isRequired,
+    onReloadPages: PropTypes.func.isRequired
   }
 
   render() {
@@ -25,7 +21,7 @@ class Pages extends Component {
         </thead>
         <tbody>
           {
-            this.state.pages.map((page) => (
+            this.props.pages.map((page) => (
               <Page key={page.id} id={page.id} title={page.title}/> 
               //<Page key={page.id} page={page} /> 
             ))
