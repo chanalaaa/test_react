@@ -15,7 +15,10 @@ export default class PagesContainer extends Component {
       .then((response) => response.json())
       .then((pages) => this.setState({ pages }))
   }
-
+  
+  shouldComponentUpdate(_nextProps, nextState) {
+    return this.state.pages !== nextState.pages;
+  }
 
   componentDidMount() {
       this.onReloadPages()
