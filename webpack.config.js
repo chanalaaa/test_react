@@ -16,16 +16,18 @@ const sassLoaders = [
 
 const config = {
     devtool: 'source-map',
-    entry: {
-        main: ['./ui/main.js']
-        //style: ['./ui/scss/style.scss']
-
-    },
+    entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './ui/scss/style.scss',
+    './ui/main.js'
+  ],
     module: {
         loaders: [{
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0'],
+            loaders: ['babel-loader'],
             // loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
             /* 
             query: {
@@ -37,14 +39,15 @@ const config = {
             loader: 'style-loader!css-loader'
         }, {
             test: /\.scss$/,
+            exclude: /node_modules/,
             //loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
             loaders: ['style-loader', sassLoaders.join('!')]
         }]
     },
     output: {
-        filename: '[name].js',
+        filename: 'main.js',
         path: path.join(__dirname, './js'),
-        publicPath: '/js'
+        publicPath: '../../js'
     },
     plugins: [
         //new ExtractTextPlugin('../css/style.css', { allChunks: true }),
@@ -62,7 +65,11 @@ const config = {
 
     },
     devServer: {
-        historyApiFallback: true,
+        hot: true,
+        inline: false,
+        historyApiFallback: {
+            index: '/'
+        },
         proxy: {
             '/api/*': {
                 target: 'http://127.0.0.1:5000'
