@@ -16,16 +16,20 @@ const sassLoaders = [
 
 const config = {
     devtool: 'source-map',
-    entry: {
-        main: ['./ui/main.js']
+    entry: [
+        
+        'react-hot-loader/patch',
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        './ui/main.js',
         //style: ['./ui/scss/style.scss']
 
-    },
+    ],
     module: {
         loaders: [{
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
-            loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0'],
+            loaders: ['babel-loader'],
             // loaders: ['react-hot', 'babel-loader?presets[]=es2015,presets[]=react'],
             /* 
             query: {
@@ -42,7 +46,7 @@ const config = {
         }]
     },
     output: {
-        filename: '[name].js',
+        filename: 'main.js',
         path: path.join(__dirname, './js'),
         publicPath: '/js'
     },
@@ -62,6 +66,8 @@ const config = {
 
     },
     devServer: {
+        hot: true,
+        inline: false,
         historyApiFallback: true,
         proxy: {
             '/api/*': {
