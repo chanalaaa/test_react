@@ -39,7 +39,11 @@ class PagesContainer extends Component {
   }
 
 
-//////////////////////////
+  export default connect(
+    (state) => ({ pages: state.pages }),
+    { onLoadPages: loadPages }
+  )(PagesContainer)
+
 
 
 
