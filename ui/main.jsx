@@ -5,6 +5,7 @@ import Root from './containers/Root'
 import './scss/style' //for dev only
 
 const rootEl = document.getElementById('app')
+console.log(Root)
 
 render(
   <AppContainer>
@@ -25,4 +26,5 @@ if (module.hot) {
     );
   });
 }
+
 
