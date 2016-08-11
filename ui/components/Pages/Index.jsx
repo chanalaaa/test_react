@@ -1,15 +1,19 @@
-import React, { Component,PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 import fetch from 'isomorphic-fetch'
 import Page from './Page'
 
-
-const Pages = ({pages, onReloadPages}) => (
-  <div className='block'>
+const Pages = ({
+  pages,
+  onReloadPages
+}) => (
+    <div className='block'>
     <button
       className='button'
       onClick={() => onReloadPages()}>
       Reload Pages
     </button>
+    <Link to={{ pathname: '/pages/new' }}>Create New Page</Link>
     <hr />
     <table className='table'>
     <thead>
@@ -32,7 +36,6 @@ const Pages = ({pages, onReloadPages}) => (
     </table>
   </div>
 )
-
 
 Pages.propTypes = {
   pages: PropTypes.array.isRequired,
